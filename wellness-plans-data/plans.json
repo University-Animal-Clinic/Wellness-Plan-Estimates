@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-02-18T21:41:04.249Z",
+    "lastUpdated": "2026-07-20T14:45:26.611Z",
     "schemaVersion": 2,
     "version": "2026.3"
   },
@@ -26,6 +26,12 @@
             "name": "Leptospirosis Vaccination",
             "note": "Per vaccine",
             "retailPrice": 50.24
+          },
+          {
+            "code": "B01",
+            "name": "DA2PP + Lepto Combination Vaccination",
+            "note": "Per vaccine",
+            "retailPrice": 55.4
           },
           {
             "code": "B059",
@@ -592,6 +598,12 @@
             "name": "Leptospirosis Vaccination",
             "note": "Per vaccine",
             "retailPrice": 50.24
+          },
+          {
+            "code": "B01",
+            "name": "DA2PP + Lepto Combination Vaccination",
+            "note": "Per vaccine",
+            "retailPrice": 55.4
           },
           {
             "code": "B059",
