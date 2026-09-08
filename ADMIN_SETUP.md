@@ -29,7 +29,7 @@ This guide is for the admin who sets up the GitHub Actions integration.
 
 **IMPORTANT**: Must access via HTTPS (GitHub Pages), not local file:
 
-1. Open: https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/admin.html
+1. Open: https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/admin.html
 2. Log in with password
 3. Click "Configure Workflow Token" button
 4. Paste token from step 1
@@ -50,7 +50,7 @@ Token stored in browser localStorage (HTTPS only). Staff never see it.
 
 **Token not saving / "Configure Workflow Token" doesn't persist**:
 - ❌ Do NOT use local file (file:///...) - localStorage won't work!
-- ✅ MUST access via GitHub Pages: https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/admin.html
+- ✅ MUST access via GitHub Pages: https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/admin.html
 - Open browser DevTools (F12) → Console tab
 - Type: `localStorage.getItem('workflowToken')`
 - Should show your token after configuration
@@ -71,12 +71,12 @@ Token stored in browser localStorage (HTTPS only). Staff never see it.
 - Ensure token is for correct repository: `Wellness-Plan-Estimates`
 
 **Changes not appearing**:
-- Check workflow logs: https://github.com/samsamanowitz/Wellness-Plan-Estimates/actions
+- Check workflow logs: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/actions
 - Verify GitHub Actions is enabled in repository settings
 - Wait 30-60 seconds for GitHub Pages deployment
 
 ## Support
 
-- **Repository**: https://github.com/samsamanowitz/Wellness-Plan-Estimates
-- **Workflow logs**: https://github.com/samsamanowitz/Wellness-Plan-Estimates/actions
-- **Data file**: https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json
+- **Repository**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates
+- **Workflow logs**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/actions
+- **Data file**: https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json

@@ -43,8 +43,8 @@ Pricing updates are handled by a secure GitHub Actions workflow:
 ### Audit Trail
 
 All changes tracked at:
-- **Commits**: https://github.com/samsamanowitz/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
-- **Workflows**: https://github.com/samsamanowitz/Wellness-Plan-Estimates/actions
+- **Commits**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
+- **Workflows**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/actions
 
 ## 📁 Repository Structure
 

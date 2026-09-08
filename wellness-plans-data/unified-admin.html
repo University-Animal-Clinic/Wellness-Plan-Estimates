@@ -1084,7 +1084,7 @@ This is a PUBLIC repository.
     // ════════════════════════════════════════
     //  CONFIGURATION
     // ════════════════════════════════════════
-    const GITHUB_OWNER = 'samsamanowitz';
+    const GITHUB_OWNER = 'University-Animal-Clinic';
     const GITHUB_REPO = 'Wellness-Plan-Estimates';
     const GITHUB_API = 'https://api.github.com';
     const PASSWORD_HASH = '81140101981a72c287f3d39c659410b9448d4d8260e3ea1fd539feb488877610';
@@ -1168,7 +1168,7 @@ This is a PUBLIC repository.
     async function loadPlansData() {
         try {
             const response = await fetch(
-                `https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json?t=${Date.now()}`
+                `https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json?t=${Date.now()}`
             );
             if (!response.ok) throw new Error('Failed to fetch plans.json: ' + response.status);
             plansData = await response.json();

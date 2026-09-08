@@ -279,7 +279,7 @@
 ## Phase 9: Audit Trail
 
 ### Test 9.1: Commit Messages
-1. [ ] Go to GitHub: https://github.com/samsamanowitz/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
+1. [ ] Go to GitHub: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
 2. [ ] Verify commit messages are descriptive:
    - [ ] "Add optional service to Puppy Plan 2026: [name] ([code]) - $X.XX/mo"
    - [ ] "Delete optional service from [plan]: [name] ([code])"
@@ -346,6 +346,6 @@ Then refresh admin portal and generator.
 
 ## Contact
 
-**Issues**: https://github.com/samsamanowitz/Wellness-Plan-Estimates/issues
+**Issues**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/issues
 **Documentation**: `CLAUDE.md`
 **Version**: 2026.2

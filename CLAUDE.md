@@ -112,15 +112,15 @@ Veterinary wellness plan estimate generator for creating monthly payment plans. 
 
 **Audit Trail:**
 - All changes tracked in GitHub commit history AND workflow logs
-- Git commits: https://github.com/samsamanowitz/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
-- Workflow runs: https://github.com/samsamanowitz/Wellness-Plan-Estimates/actions
+- Git commits: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/commits/main/wellness-plans-data/plans.json
+- Workflow runs: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates/actions
 
 ---
 
 ## Data Structures
 
 ### ✅ plansData Object (Dynamically Loaded from GitHub)
-**Source**: `https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
+**Source**: `https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
 
 ```javascript
 // Loaded dynamically at runtime (line 1828-1850)
@@ -195,7 +195,7 @@ plansData = {
 **Current Solution**: ✅ **FULLY IMPLEMENTED**
 - ✅ Admin interface deployed at: `wellness-plans-data/admin.html`
 - ✅ Pricing data stored in GitHub repository: `wellness-plans-data/plans.json`
-- ✅ Generator fetches data from: `https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
+- ✅ Generator fetches data from: `https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
 - ✅ Staff can update pricing via web interface (no code editing required)
 - ✅ Changes automatically sync to all hospital computers
 - ✅ Full audit trail via Git commits
@@ -213,7 +213,7 @@ GitHub Actions Workflow (.github/workflows/update-pricing.yml)
     ↓ Validates payload & commits using built-in GITHUB_TOKEN (encrypted secret)
 GitHub Repository (Wellness-Plan-Estimates/wellness-plans-data)
     ↓ GitHub Pages auto-deploys (30-60 seconds)
-plans.json (https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json)
+plans.json (https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json)
     ↓ fetch() on page load (with localStorage cache fallback)
 Wellness_Estimate_Generator.html (all hospital computers)
     ↓ LZ-compressed URL
@@ -320,7 +320,7 @@ function getEnrollmentFee(index) {
 
 ### ✅ One-Time Setup (COMPLETED)
 1. ✅ GitHub repository created: `Wellness-Plan-Estimates/wellness-plans-data`
-2. ✅ GitHub Pages enabled and serving at: `https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
+2. ✅ GitHub Pages enabled and serving at: `https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json`
 3. ✅ GitHub Personal Access Token configured
 4. ✅ Files deployed: plans.json, admin.html, README.md, SETUP.sh
 5. ✅ JSON verified accessible (HTTP 200 OK)
@@ -407,10 +407,10 @@ function getEnrollmentFee(index) {
 
 ## Contact & Support
 
-- **GitHub Repository**: https://github.com/samsamanowitz/Wellness-Plan-Estimates
+- **GitHub Repository**: https://github.com/University-Animal-Clinic/Wellness-Plan-Estimates
 - **Data Repository**: `wellness-plans-data/` folder
 - **Admin Interface**: `wellness-plans-data/admin.html`
-- **Plans Data**: https://samsamanowitz.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json
+- **Plans Data**: https://university-animal-clinic.github.io/Wellness-Plan-Estimates/wellness-plans-data/plans.json
 - **Estimate Viewer**: https://university-animal-clinic.github.io/uacvet.github.io/estimate-viewer.html
 
 ## Version History
