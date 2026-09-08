@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "lastUpdated": "2026-09-08T19:24:47.461Z",
+    "lastUpdated": "2026-09-08T19:27:39.816Z",
     "schemaVersion": 2,
     "version": "2026.2"
   },
   "plans": {
     "canineAdult": {
-      "baseCost": 62.01,
+      "baseCost": 62,
       "cancellation": {
         "bundled": [
           {
