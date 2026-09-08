@@ -1610,16 +1610,75 @@
                 display: none !important;
             }
         }
+        /* ===== Email setup dialog ===== */
+        .emailcfg[hidden] { display: none; }
+        .emailcfg {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .emailcfg-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .emailcfg-panel {
+            position: relative;
+            background: #fff;
+            border-radius: 14px;
+            width: min(520px, 100%);
+            max-height: 100%;
+            overflow: auto;
+            padding: 24px 26px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+        }
+        .emailcfg-panel h2 { margin: 0 0 10px; font-size: 20px; color: #333; }
+        .emailcfg-intro { margin: 0 0 18px; font-size: 13.5px; line-height: 1.6; color: #555; }
+        .emailcfg-panel label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: #666;
+            margin: 0 0 6px;
+        }
+        .emailcfg-panel input {
+            width: 100%;
+            padding: 11px 13px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            margin: 0 0 16px;
+            box-sizing: border-box;
+        }
+        .emailcfg-panel input:focus { outline: none; border-color: #FFD700; }
+        .emailcfg-status { margin: 0 0 18px; font-size: 13px; font-weight: 600; }
+        .emailcfg-status.ok { color: #1B5E20; }
+        .emailcfg-status.warn { color: #A50E0E; }
+        .emailcfg-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+        .email-setup-link {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 13px;
+            font-family: inherit;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 4px 6px;
+        }
+        .email-setup-link:hover { color: #333; }
+        .email-setup-link .dot { font-size: 11px; }
+        .email-setup-link .dot.ok { color: #2E7D32; }
+        .email-setup-link .dot.warn { color: #D93025; }
     </style>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- LZ-String compression library -->
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("TXzV_-3Nj1wFvYs71");
-        })();
-    </script>
+    <!-- EmailJS is initialised at send time with credentials supplied per
+         computer; nothing sensitive is stored in this file. -->
 </head>
 <body>
     <!-- Toast Container -->
@@ -1648,7 +1707,31 @@ UklGRnJrAQBXRUJQVlA4WAoAAAAwAAAAzwcA7gMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZ
                 <input type="email" id="clientEmail" placeholder="Enter client email">
             </div>
             <button class="btn btn-secondary" onclick="resetForm()">Reset All</button>
+            <button class="email-setup-link" id="emailSetupLink" onclick="openEmailSetup()">Email setup</button>
         </div>
+
+    <!-- Email setup: credentials live in this browser only, never in the page -->
+    <div class="emailcfg" id="emailCfgModal" hidden>
+        <div class="emailcfg-backdrop" onclick="closeEmailSetup()"></div>
+        <div class="emailcfg-panel" role="dialog" aria-modal="true" aria-labelledby="emailCfgTitle">
+            <h2 id="emailCfgTitle">Email Setup</h2>
+            <p class="emailcfg-intro">
+                These values are stored in <strong>this browser only</strong> and are never part of
+                the page, so nobody opening this page elsewhere can send email as the clinic.
+                Set this up once on each clinic computer.
+            </p>
+            <label for="emailCfgPub">EmailJS Public Key</label>
+            <input type="text" id="emailCfgPub" autocomplete="off" spellcheck="false" placeholder="Public key from your EmailJS account">
+            <label for="emailCfgSvc">EmailJS Service ID</label>
+            <input type="text" id="emailCfgSvc" autocomplete="off" spellcheck="false" placeholder="service_xxxxxxx">
+            <p class="emailcfg-status" id="emailCfgStatus"></p>
+            <div class="emailcfg-actions">
+                <button class="btn btn-secondary" onclick="closeEmailSetup()">Cancel</button>
+                <button class="btn btn-secondary" onclick="clearEmailConfig()">Remove From This Computer</button>
+                <button class="btn btn-primary" onclick="saveEmailSetup()">Save</button>
+            </div>
+        </div>
+    </div>
 
         <!-- Pets Container -->
         <div class="pets-container">
@@ -1771,6 +1854,108 @@ UklGRnJrAQBXRUJQVlA4WAoAAAAwAAAAzwcA7gMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZ
 
     <script>
         // Toast Notification System
+        var EMAILJS_TEMPLATE_ID = 'template_1vedpmq';   // not a credential
+
+        // ============================================================
+        // EMAIL CONFIGURATION
+        // The EmailJS credentials are deliberately NOT in this file. Anything in the
+        // page source is readable by anyone who loads the page, so a hardcoded key
+        // would let a stranger send mail as the clinic. Each clinic computer is
+        // configured once instead, and the values stay in that browser.
+        // The template id below is not a credential and is safe to ship.
+        // ============================================================
+        var EMAIL_CFG_KEYS = { pub: 'emailjs_public_key', svc: 'emailjs_service_id' };
+
+        function getEmailConfig() {
+            try {
+                return {
+                    publicKey: (localStorage.getItem(EMAIL_CFG_KEYS.pub) || '').trim(),
+                    serviceId: (localStorage.getItem(EMAIL_CFG_KEYS.svc) || '').trim()
+                };
+            } catch (e) {
+                return { publicKey: '', serviceId: '' };
+            }
+        }
+
+        function emailIsConfigured() {
+            var c = getEmailConfig();
+            return !!(c.publicKey && c.serviceId);
+        }
+
+        function openEmailSetup() {
+            var c = getEmailConfig();
+            document.getElementById('emailCfgPub').value = c.publicKey;
+            document.getElementById('emailCfgSvc').value = c.serviceId;
+            refreshEmailCfgStatus();
+            document.getElementById('emailCfgModal').hidden = false;
+        }
+
+        function closeEmailSetup() {
+            document.getElementById('emailCfgModal').hidden = true;
+        }
+
+        function refreshEmailCfgStatus() {
+            var el = document.getElementById('emailCfgStatus');
+            if (!el) return;
+            if (emailIsConfigured()) {
+                el.textContent = 'Configured on this computer — emailing is enabled here.';
+                el.className = 'emailcfg-status ok';
+            } else {
+                el.textContent = 'Not configured — this computer can preview and print, but cannot send email.';
+                el.className = 'emailcfg-status warn';
+            }
+        }
+
+        function saveEmailSetup() {
+            var pub = document.getElementById('emailCfgPub').value.trim();
+            var svc = document.getElementById('emailCfgSvc').value.trim();
+            if (!pub || !svc) {
+                showToast('warning', 'Both Fields Needed', 'Enter the public key and the service ID.');
+                return;
+            }
+            try {
+                localStorage.setItem(EMAIL_CFG_KEYS.pub, pub);
+                localStorage.setItem(EMAIL_CFG_KEYS.svc, svc);
+            } catch (e) {
+                showToast('error', 'Could Not Save', 'This browser is blocking local storage, so the setting cannot be kept.');
+                return;
+            }
+            refreshEmailCfgStatus();
+            refreshEmailUi();
+            closeEmailSetup();
+            showToast('success', 'Email Enabled', 'This computer can now send summaries. Other computers need their own setup.');
+        }
+
+        function clearEmailConfig() {
+            try {
+                localStorage.removeItem(EMAIL_CFG_KEYS.pub);
+                localStorage.removeItem(EMAIL_CFG_KEYS.svc);
+            } catch (e) { /* nothing to do */ }
+            document.getElementById('emailCfgPub').value = '';
+            document.getElementById('emailCfgSvc').value = '';
+            refreshEmailCfgStatus();
+            refreshEmailUi();
+            showToast('info', 'Removed', 'Email sending is now disabled on this computer.');
+        }
+
+        // Reflects configuration state in the UI so staff can tell at a glance whether
+        // this machine can send, rather than finding out when a send fails.
+        function refreshEmailUi() {
+            var ok = emailIsConfigured();
+            var link = document.getElementById('emailSetupLink');
+            if (link) {
+                link.innerHTML = '<span class="dot ' + (ok ? 'ok' : 'warn') + '">' + (ok ? '●' : '●') + '</span> ' +
+                                 (ok ? 'Email setup' : 'Email setup needed');
+            }
+            document.querySelectorAll('.btn-email').forEach(function (b) {
+                b.disabled = !ok;
+                b.title = ok ? '' : 'Email is not set up on this computer. Click "Email setup" to enable it.';
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () { refreshEmailUi(); });
+
         function showToast(type, title, message, duration = 4000) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
@@ -2450,6 +2635,12 @@ UklGRnJrAQBXRUJQVlA4WAoAAAAwAAAAzwcA7gMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZ
         }
 
         function emailEstimate() {
+            if (!emailIsConfigured()) {
+                showToast('warning', 'Email Not Set Up',
+                    'This computer has not been set up to send email. Use "Email setup" near the top of the page, or print the estimate instead.');
+                return;
+            }
+
             // Check if at least one pet has a plan
             const petsWithPlans = pets.filter(function(p) { return p.planKey; });
             if (petsWithPlans.length === 0) {
@@ -2556,7 +2747,9 @@ UklGRnJrAQBXRUJQVlA4WAoAAAAwAAAAzwcA7gMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZ
                 total_amount: '$' + estimateData.totals.firstYear.toFixed(2)
             };
 
-            emailjs.send('service_xm8d7sb', 'template_1vedpmq', templateParams)
+            var cfg = getEmailConfig();
+            emailjs.init(cfg.publicKey);
+            emailjs.send(cfg.serviceId, EMAILJS_TEMPLATE_ID, templateParams)
                 .then(function(response) {
                     emailBtn.innerHTML = '<span>✅</span> Sent!';
                     setTimeout(function() {
