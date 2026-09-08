@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-07-20T14:45:26.611Z",
+    "lastUpdated": "2026-09-08",
     "schemaVersion": 2,
     "version": "2026.3"
   },
@@ -11,66 +11,79 @@
         "bundled": [
           {
             "code": "WPOF",
+            "memberPrice": 56,
+            "memberQtyCap": 4,
             "name": "Office Visit / Examination",
             "note": "Per visit",
             "retailPrice": 70
           },
           {
             "code": "B025",
+            "memberPrice": 38.4,
             "name": "DA2PP Vaccination",
             "note": "Per vaccine",
             "retailPrice": 48
           },
           {
             "code": "B46",
+            "memberPrice": 40.19,
             "name": "Leptospirosis Vaccination",
             "note": "Per vaccine",
             "retailPrice": 50.24
           },
           {
             "code": "B01",
+            "memberPrice": 44.32,
             "name": "DA2PP + Lepto Combination Vaccination",
             "note": "Per vaccine",
             "retailPrice": 55.4
           },
           {
             "code": "B059",
+            "memberPrice": 39.39,
             "name": "Bordetella Oral Vaccine",
             "note": "Per vaccine",
             "retailPrice": 49.23
           },
           {
             "code": "B07",
+            "memberPrice": 32.28,
             "name": "Rabies Vaccination",
             "note": "Per vaccine",
             "retailPrice": 40.35
           },
           {
             "code": "T805",
+            "memberPrice": 47.04,
             "name": "Parasite Fecal Exam",
             "note": "Per test",
             "retailPrice": 58.79
           },
           {
             "code": "OF358",
+            "memberPrice": 14.8,
             "name": "Deworming Treatment",
             "note": "Per treatment",
             "retailPrice": 18.5
           },
           {
             "code": "99-0011516",
+            "memberPrice": 75.93,
             "name": "Heartworm / Tick Borne Disease Test (SNAP 4Dx Plus)",
             "note": "",
             "retailPrice": 94.91
           },
           {
             "code": "SA710",
+            "memberPrice": 186.4,
             "name": "Preventive Diagnostic Screen",
             "note": "",
             "retailPrice": 233
           },
           {
             "code": "WPNAIL",
+            "memberPrice": 24.8,
+            "memberQtyCap": 6,
             "name": "Nail Trim (Routine)",
             "note": "Per trim",
             "retailPrice": 31
@@ -79,48 +92,56 @@
         "optional": [
           {
             "code": "WPSPAYK9",
+            "memberPrice": 648,
             "name": "Canine Spay Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 810
           },
           {
             "code": "WPNEUK9",
+            "memberPrice": 632,
             "name": "Canine Neuter Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 790
           },
           {
             "code": "WPDENT1",
+            "memberPrice": 605.6,
             "name": "Canine Dental Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 757
           },
           {
             "code": "SA055",
+            "memberPrice": 149.87,
             "name": "Pre-Op Blood Panel (standalone)",
             "note": "Only if not bundled w/ surgery or dental",
             "retailPrice": 187.34
           },
           {
             "code": "K222",
+            "memberPrice": 51.2,
             "name": "Microchip & Registration",
             "note": "",
             "retailPrice": 64
           },
           {
             "code": "WPANAL",
+            "memberPrice": 34.4,
             "name": "Anal Gland Expression",
             "note": "Per expression",
             "retailPrice": 43
           },
           {
             "code": "WP701",
+            "memberPrice": 420,
             "name": "Abdominal Ultrasound",
             "note": "",
             "retailPrice": 525
           },
           {
             "code": "RADS3",
+            "memberPrice": 244,
             "name": "Radiograph (3 Views)",
             "note": "",
             "retailPrice": 305
@@ -233,48 +254,58 @@
         "bundled": [
           {
             "code": "WPOF",
+            "memberPrice": 56,
+            "memberQtyCap": 4,
             "name": "Office Visit / Examination",
             "note": "Per visit",
             "retailPrice": 70
           },
           {
             "code": "B23",
+            "memberPrice": 41.92,
             "name": "FVRCP Vaccination",
             "note": "Per vaccine",
             "retailPrice": 52.4
           },
           {
             "code": "B07",
+            "memberPrice": 32.28,
             "name": "Rabies Vaccination",
             "note": "Per vaccine",
             "retailPrice": 40.35
           },
           {
             "code": "T805",
+            "memberPrice": 47.04,
             "name": "Parasite Fecal Exam",
             "note": "Per test",
             "retailPrice": 58.79
           },
           {
             "code": "OF358",
+            "memberPrice": 14.8,
             "name": "Deworming Treatment",
             "note": "Per treatment",
             "retailPrice": 18.5
           },
           {
             "code": "SA260",
+            "memberPrice": 66.36,
             "name": "FeLV/FIV Test",
             "note": "",
             "retailPrice": 82.95
           },
           {
             "code": "SA710",
+            "memberPrice": 186.4,
             "name": "Preventive Diagnostic Screen",
             "note": "",
             "retailPrice": 233
           },
           {
             "code": "WPNAIL",
+            "memberPrice": 24.8,
+            "memberQtyCap": 6,
             "name": "Nail Trim (Routine)",
             "note": "Per trim",
             "retailPrice": 31
@@ -283,42 +314,49 @@
         "optional": [
           {
             "code": "WPFELSP",
+            "memberPrice": 641.6,
             "name": "Feline Spay Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 802
           },
           {
             "code": "WPFELNEU",
+            "memberPrice": 539.2,
             "name": "Feline Neuter Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 674
           },
           {
             "code": "WPDENFEL",
+            "memberPrice": 581.6,
             "name": "Feline Dental Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 727
           },
           {
             "code": "SA055",
+            "memberPrice": 149.87,
             "name": "Pre-Op Blood Panel (standalone)",
             "note": "Only if not bundled w/ surgery or dental",
             "retailPrice": 187.34
           },
           {
             "code": "K222",
+            "memberPrice": 51.2,
             "name": "Microchip & Registration",
             "note": "",
             "retailPrice": 64
           },
           {
             "code": "WP701",
+            "memberPrice": 420,
             "name": "Abdominal Ultrasound",
             "note": "",
             "retailPrice": 525
           },
           {
             "code": "RADS3",
+            "memberPrice": 244,
             "name": "Radiograph (3 Views)",
             "note": "",
             "retailPrice": 305
@@ -424,48 +462,58 @@
         "bundled": [
           {
             "code": "WPOF",
+            "memberPrice": 56,
+            "memberQtyCap": 4,
             "name": "Office Visit / Examination",
             "note": "Per visit",
             "retailPrice": 70
           },
           {
             "code": "B23",
+            "memberPrice": 41.92,
             "name": "FVRCP Vaccination",
             "note": "Per vaccine",
             "retailPrice": 52.4
           },
           {
             "code": "B07",
+            "memberPrice": 32.28,
             "name": "Rabies Vaccination",
             "note": "Per vaccine",
             "retailPrice": 40.35
           },
           {
             "code": "T805",
+            "memberPrice": 47.04,
             "name": "Parasite Fecal Exam",
             "note": "Per test",
             "retailPrice": 58.79
           },
           {
             "code": "T991",
+            "memberPrice": 71.72,
             "name": "Keyscreen (Fecal Panel)",
             "note": "Per test",
             "retailPrice": 89.65
           },
           {
             "code": "OF358",
+            "memberPrice": 14.8,
             "name": "Deworming Treatment",
             "note": "Per treatment",
             "retailPrice": 18.5
           },
           {
             "code": "SA260",
+            "memberPrice": 66.36,
             "name": "FeLV/FIV Test",
             "note": "",
             "retailPrice": 82.95
           },
           {
             "code": "WPNAIL",
+            "memberPrice": 24.8,
+            "memberQtyCap": 6,
             "name": "Nail Trim (Routine)",
             "note": "Per trim",
             "retailPrice": 31
@@ -474,30 +522,35 @@
         "optional": [
           {
             "code": "WPFELSP",
+            "memberPrice": 641.6,
             "name": "Feline Spay Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 802
           },
           {
             "code": "WPFELNEU",
+            "memberPrice": 539.2,
             "name": "Feline Neuter Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 674
           },
           {
             "code": "SA055",
+            "memberPrice": 149.87,
             "name": "Pre-Op Blood Panel (standalone)",
             "note": "Only if not bundled w/ surgery",
             "retailPrice": 187.34
           },
           {
             "code": "K222",
+            "memberPrice": 51.2,
             "name": "Microchip & Registration",
             "note": "",
             "retailPrice": 64
           },
           {
             "code": "RADS3",
+            "memberPrice": 244,
             "name": "Radiograph (3 Views)",
             "note": "",
             "retailPrice": 305
@@ -583,66 +636,79 @@
         "bundled": [
           {
             "code": "WPOF",
+            "memberPrice": 56,
+            "memberQtyCap": 4,
             "name": "Office Visit / Examination",
             "note": "Per visit",
             "retailPrice": 70
           },
           {
             "code": "B025",
+            "memberPrice": 38.4,
             "name": "DA2PP Vaccination",
             "note": "Per vaccine",
             "retailPrice": 48
           },
           {
             "code": "B46",
+            "memberPrice": 40.19,
             "name": "Leptospirosis Vaccination",
             "note": "Per vaccine",
             "retailPrice": 50.24
           },
           {
             "code": "B01",
+            "memberPrice": 44.32,
             "name": "DA2PP + Lepto Combination Vaccination",
             "note": "Per vaccine",
             "retailPrice": 55.4
           },
           {
             "code": "B059",
+            "memberPrice": 39.39,
             "name": "Bordetella Oral Vaccine",
             "note": "Per vaccine",
             "retailPrice": 49.23
           },
           {
             "code": "B07",
+            "memberPrice": 32.28,
             "name": "Rabies Vaccination",
             "note": "Per vaccine",
             "retailPrice": 40.35
           },
           {
             "code": "T805",
+            "memberPrice": 47.04,
             "name": "Parasite Fecal Exam",
             "note": "Per test",
             "retailPrice": 58.79
           },
           {
             "code": "T991",
+            "memberPrice": 71.72,
             "name": "Keyscreen (Fecal Panel)",
             "note": "Per test",
             "retailPrice": 89.65
           },
           {
             "code": "OF358",
+            "memberPrice": 14.8,
             "name": "Deworming Treatment",
             "note": "Per treatment",
             "retailPrice": 18.5
           },
           {
             "code": "99-0011516",
+            "memberPrice": 75.93,
             "name": "Heartworm / Tick Borne Disease Test (SNAP 4Dx Plus)",
             "note": "",
             "retailPrice": 94.91
           },
           {
             "code": "WPNAIL",
+            "memberPrice": 24.8,
+            "memberQtyCap": 6,
             "name": "Nail Trim (Routine)",
             "note": "Per trim",
             "retailPrice": 31
@@ -651,36 +717,42 @@
         "optional": [
           {
             "code": "WPSPAYK9",
+            "memberPrice": 648,
             "name": "Canine Spay Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 810
           },
           {
             "code": "WPNEUK9",
+            "memberPrice": 632,
             "name": "Canine Neuter Procedure",
             "note": "Includes Pre-Op Blood Panel",
             "retailPrice": 790
           },
           {
             "code": "SA055",
+            "memberPrice": 149.87,
             "name": "Pre-Op Blood Panel (standalone)",
             "note": "Only if not bundled w/ surgery",
             "retailPrice": 187.34
           },
           {
             "code": "K222",
+            "memberPrice": 51.2,
             "name": "Microchip & Registration",
             "note": "",
             "retailPrice": 64
           },
           {
             "code": "WPANAL",
+            "memberPrice": 34.4,
             "name": "Anal Gland Expression",
             "note": "Per expression",
             "retailPrice": 43
           },
           {
             "code": "RADS3",
+            "memberPrice": 244,
             "name": "Radiograph (3 Views)",
             "note": "",
             "retailPrice": 305
