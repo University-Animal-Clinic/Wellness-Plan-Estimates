@@ -2013,7 +2013,7 @@ UklGRnJrAQBXRUJQVlA4WAoAAAAwAAAAzwcA7gMASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZ
         async function loadPlansData() {
             try {
                 console.log('Loading plans data from GitHub Pages...');
-                const response = await fetch(PLANS_DATA_URL);
+                const response = await fetch(PLANS_DATA_URL + '?t=' + Date.now());
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch plans data: ' + response.status);
